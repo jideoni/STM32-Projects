@@ -1,4 +1,5 @@
 This project was developed on STM32 NUCLEO-F070RB Board, but it can be adapted to work on any STM32 Nucleo Board
+
 ![Project ioc file](https://github.com/user-attachments/assets/4d7659a4-434d-498d-88a5-55434d264960)
 
 **Project Features:**
