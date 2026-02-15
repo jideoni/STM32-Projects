@@ -1,4 +1,4 @@
-//Pushed to GitHub - neww
+//Pushed to GitHub - new
 /*
  * app.c
  *
