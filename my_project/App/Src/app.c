@@ -17,7 +17,7 @@
 #include "LED2_Thread.h"
 #include "bsp_ble.h"
 #include "bsp_ldr.h"
-#include "ldr_driver.hh"
+#include "ldr_driver.h"
 
 void App_Init(void){
 	LED1_Init();
