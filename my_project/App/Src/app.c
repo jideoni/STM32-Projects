@@ -1,4 +1,4 @@
-//Pushed to GitHub - new branch a
+//Pushed to GitHub - new branch
 /*
  * app.c
  *
