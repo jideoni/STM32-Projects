@@ -1,1 +1,10 @@
 /Debug/
+/Release/
+/.settings/
+.mxproject
+.project
+.cproject
+build/
+*.bin
+*.hex
+*.elf
