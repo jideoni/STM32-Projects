@@ -8,8 +8,6 @@
 #ifndef INC_BUTTON_SERVICE_H_
 #define INC_BUTTON_SERVICE_H_
 
-#include <stdint.h>
-
 void BUTTON_Service_ISR(void);
 
 #endif /* INC_BUTTON_SERVICE_H_ */

@@ -6,8 +6,6 @@
  */
 
 #include "cmsis_os.h"
-#include "led1_service.h"
-#include "bsp_led1.h"
 #include "thread_handles.h"
 #include "thread_notification_flags.h"
 #include "button_service.h"

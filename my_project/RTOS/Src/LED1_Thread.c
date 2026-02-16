@@ -13,6 +13,8 @@
 #include "bsp_serial_debug.h"
 #include "bsp_ble.h"
 
+static HAL_StatusTypeDef ver;
+
 /* Definitions for LED1Thread */
 osThreadId_t LED1ThreadHandle;
 
@@ -31,18 +33,21 @@ static void StartLED1Thread(void *argument) {
 	/* Infinite loop */
 	for (;;) {
 		uint32_t flags = osThreadFlagsWait(
-				LED1_THREAD_BUTTON_FLAG | LED1_THREAD_BLE_RX_FLAG,
-				osFlagsWaitAny,
-				osWaitForever);
+		LED1_THREAD_BUTTON_FLAG | LED1_THREAD_BLE_RX_FLAG,
+		osFlagsWaitAny,
+		osWaitForever);
 
 		if (flags & LED1_THREAD_BUTTON_FLAG) {
 			LED1_Service_Toggle();
 			print_message("Button Signal Received\r\n");
-		}
-		else if (flags & LED1_THREAD_BLE_RX_FLAG) {
-			HAL_UART_Receive_IT(&huart1, (uint8_t*) rx_buf, RX_SIZE);	//prepare for next RX
-			LED1_Service_Toggle(); // Toggle The Output (LED) Pin
-			print_message("Bluetooth Control\r\n");
+		} else if (flags & LED1_THREAD_BLE_RX_FLAG) {
+			ver = HAL_UART_Receive_IT(&huart1, (uint8_t*) rx_buf, RX_SIZE);	//prepare for next RX
+			if (ver != HAL_OK) {
+				print_message("Error RX\r\n");
+			} else {
+				LED1_Service_Toggle(); // Toggle The Output (LED) Pin
+				print_message("Bluetooth Control\r\n");
+			}
 		}
 		osDelay(1);
 	}

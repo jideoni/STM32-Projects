@@ -5,9 +5,8 @@
  *      Author: Jyde
  */
 
-#include <button_driver.h>	//to access port and pin
 #include "main.h"
-#include "led1_service.h"
+#include <button_driver.h>	//to access port and pin
 #include "button_service.h"
 
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
