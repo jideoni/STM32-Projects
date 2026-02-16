@@ -24,7 +24,7 @@
 void SystemClock_Config(void);
 
 int main(void) {
-	//Test
+	//Testing
 	HAL_Init();
 	SystemClock_Config();
 
