@@ -8,9 +8,6 @@
 #ifndef ADC_DRIVER_INC_LDR_DRIVER_H_
 #define ADC_DRIVER_INC_LDR_DRIVER_H_
 
-#include <stdint.h>
-#include <stdbool.h>
-
 void LDR_Init(void);
 void LDR_DMA_Init(void);
 

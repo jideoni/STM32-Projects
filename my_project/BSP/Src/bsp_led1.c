@@ -7,8 +7,8 @@
 
 #include "main.h"
 #include "led1_driver.h"	//to access port and pin
-#include "bsp_led1.h"
 
 void BSP_LED1_Toggle(void) {
 	HAL_GPIO_TogglePin(LED1_GPIO_PORT, LED1_PIN);
+	//LED1_GPIO_PORT->ODR ^= (1 << 5);
 }

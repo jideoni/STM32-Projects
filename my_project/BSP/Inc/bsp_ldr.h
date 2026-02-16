@@ -9,10 +9,6 @@
 #define INC_BSP_LDR_H_
 
 #include "main.h"
-#include <stdint.h>
-#include <stdbool.h>
-#include <stdio.h>
-#include <string.h>
 
 #define ADC_BUF_LEN 1
 

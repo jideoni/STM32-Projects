@@ -1,4 +1,3 @@
-//Pushed to GitHub
 /*
  * app.c
  *

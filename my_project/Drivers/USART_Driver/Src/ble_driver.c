@@ -7,7 +7,6 @@
 
 #include "main.h"
 #include "ble_driver.h"
-#include "led1_driver.h"
 
 UART_HandleTypeDef huart1;
 

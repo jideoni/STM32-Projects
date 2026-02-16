@@ -8,7 +8,6 @@
 #include "main.h"
 #include "cmsis_os.h"
 #include "LED2_Thread.h"
-#include "led2_driver.h"
 #include "led2_service.h"
 #include "thread_notification_flags.h"
 #include "bsp_serial_debug.h"
