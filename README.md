@@ -1,12 +1,12 @@
-This project was developed on STM32 NUCLEO-F070RB Board, but it can be adapted to work on any STM32 Nucleo Board
+This project was developed on an STM32 NUCLEO-F070RB Board, but it can be adapted to work on any STM32 Nucleo Board
 
 ![Project ioc file](https://github.com/user-attachments/assets/4d7659a4-434d-498d-88a5-55434d264960)
 
 **Project Features:**
-The project toggles LED1 (on-board LED) using the on-board push button in interrupt mode, and using Bluetooth in UART Interrupt mode
-The second LED2 is controlled by a Light Dependent Resistor usind ADC DMA mode.
+The project toggles LED1 (on-board LED) using the on-board push button in interrupt mode, and over Bluetooth in UART Interrupt mode
+The second LED2 is controlled by a Light Dependent Resistor (LDR) usind ADC in DMA mode.
 
-Project Structure (All Auto-generated files are not included)
+Project Structure (Auto-generated files are not included)
 This project clearly separates Hardware, Middleware, and Logic layer as follows:
 
 - App
