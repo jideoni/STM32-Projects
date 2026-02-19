@@ -11,7 +11,6 @@
 #include "led2_service.h"
 #include "thread_notification_flags.h"
 #include "bsp_serial_debug.h"
-#include "ldr_service.h"
 #include "bsp_ldr.h"
 
 /* Definitions for LED2Thread */
@@ -34,7 +33,7 @@ static void StartLED2Thread(void *argument) {
 	/* USER CODE BEGIN 5 */
 	/* Infinite loop */
 	for (;;) {
-		BSP_LDR_Start_DMA();	//Start convert
+		BSP_LDR_Start_DMA();	//Start conversion
 
 		osThreadFlagsWait(LED2_THREAD_FLAG, osFlagsWaitAny, osWaitForever);
 		LDR_Value = (uint16_t) adc_buf[0];
