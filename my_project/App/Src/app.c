@@ -26,7 +26,7 @@ void App_Init(void){
 	BLE_Driver_Ready_To_RX();
 	LDR_DMA_Init();
 	LDR_Init();
-	LDR_Start_DMA();
+	BSP_LDR_Start_DMA();
 	button_Init();
 	LED1_Thread_Init();
 	LED2_Thread_Init();

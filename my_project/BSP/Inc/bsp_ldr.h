@@ -12,8 +12,8 @@
 
 #define ADC_BUF_LEN 1
 
-extern ADC_HandleTypeDef hadc;		//originally defined in ldr_driver.c
+extern ADC_HandleTypeDef hadc;		//originally defined in ldr_driver.c.c
 
-void LDR_Start_DMA(void);	//Start ADC in DMA Mode
+void BSP_LDR_Start_DMA(void);	//Start ADC in DMA Mode
 
 #endif /* INC_BSP_LDR_H_ */

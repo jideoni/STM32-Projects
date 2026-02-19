@@ -34,6 +34,8 @@ static void StartLED2Thread(void *argument) {
 	/* USER CODE BEGIN 5 */
 	/* Infinite loop */
 	for (;;) {
+		BSP_LDR_Start_DMA();	//Start convert
+
 		osThreadFlagsWait(LED2_THREAD_FLAG, osFlagsWaitAny, osWaitForever);
 		LDR_Value = (uint16_t) adc_buf[0];
 		if (LDR_Value <= 1000) {

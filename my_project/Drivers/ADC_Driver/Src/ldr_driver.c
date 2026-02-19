@@ -20,22 +20,23 @@ void LDR_Init(void) {
 	/** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
 	 */
 	hadc.Instance = ADC1;
-	hadc.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
-	hadc.Init.Resolution = ADC_RESOLUTION_12B;
-	hadc.Init.DataAlign = ADC_DATAALIGN_RIGHT;
-	hadc.Init.ScanConvMode = ADC_SCAN_DIRECTION_FORWARD;
-	hadc.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
-	hadc.Init.LowPowerAutoWait = DISABLE;
-	hadc.Init.LowPowerAutoPowerOff = DISABLE;
-	hadc.Init.ContinuousConvMode = ENABLE;
-	hadc.Init.DiscontinuousConvMode = DISABLE;
-	hadc.Init.ExternalTrigConv = ADC_SOFTWARE_START;
-	hadc.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
-	hadc.Init.DMAContinuousRequests = ENABLE;
-	hadc.Init.Overrun = ADC_OVR_DATA_PRESERVED;
-	if (HAL_ADC_Init(&hadc) != HAL_OK) {
-		Error_Handler();
-	}
+	  hadc.Init.ClockPrescaler = ADC_CLOCK_ASYNC_DIV1;
+	  hadc.Init.Resolution = ADC_RESOLUTION_12B;
+	  hadc.Init.DataAlign = ADC_DATAALIGN_RIGHT;
+	  hadc.Init.ScanConvMode = ADC_SCAN_DIRECTION_FORWARD;
+	  hadc.Init.EOCSelection = ADC_EOC_SINGLE_CONV;
+	  hadc.Init.LowPowerAutoWait = DISABLE;
+	  hadc.Init.LowPowerAutoPowerOff = DISABLE;
+	  hadc.Init.ContinuousConvMode = DISABLE;
+	  hadc.Init.DiscontinuousConvMode = DISABLE;
+	  hadc.Init.ExternalTrigConv = ADC_SOFTWARE_START;
+	  hadc.Init.ExternalTrigConvEdge = ADC_EXTERNALTRIGCONVEDGE_NONE;
+	  hadc.Init.DMAContinuousRequests = ENABLE;
+	  hadc.Init.Overrun = ADC_OVR_DATA_PRESERVED;
+	  if (HAL_ADC_Init(&hadc) != HAL_OK)
+	  {
+	    Error_Handler();
+	  }
 
 	/** Configure for the selected ADC regular channel to be converted.
 	 */
