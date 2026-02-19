@@ -10,5 +10,4 @@
 
 void BSP_LED1_Toggle(void) {
 	HAL_GPIO_TogglePin(LED1_GPIO_PORT, LED1_PIN);
-	//LED1_GPIO_PORT->ODR ^= (1 << 5);
 }
