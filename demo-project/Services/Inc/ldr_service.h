@@ -1,0 +1,19 @@
+/*
+ * ldr_service.h
+ *
+ *  Created on: Feb 13, 2026
+ *      Author: Jyde
+ */
+
+#ifndef INC_LDR_SERVICE_H_
+#define INC_LDR_SERVICE_H_
+
+#include "ldr_driver.h"
+
+//extern uint16_t adc_buf[];		//originally defined in LED2_Thread.c
+
+void LDR_Service_Init(void);
+void LDR_Service_DMA_Init(void);
+void LDR_Service_Start(void);
+
+#endif /* INC_LDR_SERVICE_H_ */
