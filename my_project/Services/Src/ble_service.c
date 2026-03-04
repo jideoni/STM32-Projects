@@ -9,7 +9,15 @@
 #include "thread_handles.h"
 #include "thread_notification_flags.h"
 #include "ble_service.h"
+#include "ble_driver.h"
+#include "bsp_ble.h"
 
-void BLE_Service_ISR(void) {
-	osThreadFlagsSet(LED1ThreadHandle, LED1_THREAD_BLE_RX_FLAG);
+void BLE_Service_Init(void){
+	BLE_Driver_Init();
+}
+
+void BLE_Service_Set_Threadflag(void){
+	if (RX_SIZE == ble_rx_complete){
+		BLE_Driver_ISR_Handler();
+	}
 }

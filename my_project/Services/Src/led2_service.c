@@ -5,14 +5,17 @@
  *      Author: Jyde
  */
 
-#include "cmsis_os.h"
 #include "led2_service.h"
-#include "bsp_led2.h"
+#include "led2_driver.h"
+
+void LED2_Service_Init(void) {
+	LED2_Init();
+}
 
 void LED2_Service_ON(void) {
-	BSP_LED2_On();
+	LED2_On();
 }
 
 void LED2_Service_OFF(void) {
-	BSP_LED2_Off();
+	LED2_Off();
 }

@@ -8,6 +8,7 @@
 #ifndef INC_BSP_LED2_H_
 #define INC_BSP_LED2_H_
 
+void BSP_LED2_Init(void);
 void BSP_LED2_On(void);
 void BSP_LED2_Off(void);
 

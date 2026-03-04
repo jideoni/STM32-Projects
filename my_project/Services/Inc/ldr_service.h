@@ -8,8 +8,12 @@
 #ifndef INC_LDR_SERVICE_H_
 #define INC_LDR_SERVICE_H_
 
-extern uint16_t adc_buf[];		//originally defined in LED2_Thread.c
+#include "ldr_driver.h"
 
-void LDR_Service_DMA(void);
+//extern uint16_t adc_buf[];		//originally defined in LED2_Thread.c
+
+void LDR_Service_Init(void);
+void LDR_Service_DMA_Init(void);
+
 
 #endif /* INC_LDR_SERVICE_H_ */

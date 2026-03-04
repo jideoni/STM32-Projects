@@ -7,7 +7,11 @@
 
 #include "led1_service.h"
 #include "bsp_led1.h"
+#include "led1_driver.h"
 
+void LED1_Service_Init(void){
+	LED1_Init();
+}
 void LED1_Service_Toggle(void) {
-	BSP_LED1_Toggle(); // Toggle The Output (LED) Pin
+	LED1_Toggle(); // Toggle The Output (LED) Pin
 }
