@@ -8,21 +8,14 @@
 #include "main.h"
 #include "led2_driver.h"
 
-void LED2_Init(void) {
-	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
-	/* USER CODE BEGIN MX_GPIO_Init_1 */
-	/* USER CODE END MX_GPIO_Init_1 */
+void LED2_Init(void){
+	BSP_LED2_Init();
+}
 
-	/* GPIO Ports Clock Enable */
-	__HAL_RCC_GPIOB_CLK_ENABLE();
+void LED2_On(void){
+	BSP_LED2_On();
+}
 
-	/*Configure GPIO pin Output Level */
-	HAL_GPIO_WritePin(LED2_GPIO_PORT, LED2_PIN, GPIO_PIN_RESET);
-
-	/*Configure GPIO pin : LED2_Pin */
-	GPIO_InitStruct.Pin = LED2_Pin;
-	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
-	GPIO_InitStruct.Pull = GPIO_NOPULL;
-	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
-	HAL_GPIO_Init(LED2_GPIO_PORT, &GPIO_InitStruct);
+void LED2_Off(void){
+	BSP_LED2_Off();
 }

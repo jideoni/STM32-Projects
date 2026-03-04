@@ -17,17 +17,22 @@
 #include "bsp_ble.h"
 #include "bsp_ldr.h"
 #include "ldr_driver.h"
+#include "ldr_service.h"
+#include "ble_service.h"
+#include "button_service.h"
+#include "led1_service.h"
+#include "led2_service.h"
 
 void App_Init(void){
-	LED1_Init();
-	LED2_Init();
+	LED1_Service_Init();
+	LED2_Service_Init();
 	Serial_Debugger_Init();
-	BLE_Init();
-	BLE_Driver_Ready_To_RX();
-	LDR_DMA_Init();
-	LDR_Init();
+	BLE_Service_Init();
+	LDR_Service_Init();
+	LDR_Service_DMA_Init();
 	BSP_LDR_Start_DMA();
-	button_Init();
+	BSP_BLE_Start_RX();
+	Button_Service_Init();
 	LED1_Thread_Init();
 	LED2_Thread_Init();
 

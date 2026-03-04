@@ -8,8 +8,14 @@
 #ifndef GPIO_DRIVER_INC_BUTTON_DRIVER_H_
 #define GPIO_DRIVER_INC_BUTTON_DRIVER_H_
 
-#include "gpio_map.h"
+#include "bsp_button.h"
 
-void button_Init(void);
+void Button_Driver_Init(void);
+
+/* called from BSP ISR */
+void Button_Driver_ISR_Handler(void);
+
+/* application/service reads event */
+//uint8_t Button_GetEvent(void);
 
 #endif /* GPIO_DRIVER_INC_BUTTON_DRIVER_H_ */

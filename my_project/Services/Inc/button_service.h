@@ -8,6 +8,7 @@
 #ifndef INC_BUTTON_SERVICE_H_
 #define INC_BUTTON_SERVICE_H_
 
-void BUTTON_Service_ISR(void);
+void Button_Service_Init(void);
+void Button_Service_ISR(void);
 
 #endif /* INC_BUTTON_SERVICE_H_ */

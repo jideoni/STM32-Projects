@@ -12,8 +12,7 @@
 #include "led1_service.h"
 #include "bsp_serial_debug.h"
 #include "bsp_ble.h"
-
-static HAL_StatusTypeDef ver;
+#include "ble_driver.h"
 
 /* Definitions for LED1Thread */
 osThreadId_t LED1ThreadHandle;
@@ -41,15 +40,12 @@ static void StartLED1Thread(void *argument) {
 			LED1_Service_Toggle();
 			print_message("Button Signal Received\r\n");
 		} else if (flags & LED1_THREAD_BLE_RX_FLAG) {
-			ver = HAL_UART_Receive_IT(&huart1, (uint8_t*) rx_buf, RX_SIZE);	//prepare for next RX
-			if (ver != HAL_OK) {
-				print_message("Error RX\r\n");
-			} else {
-				LED1_Service_Toggle(); // Toggle The Output (LED) Pin
-				print_message("Bluetooth Control\r\n");
-			}
+			//BLE_Driver_Start();
+			HAL_UART_Receive_IT(BLE_UART_HANDLER, (uint8_t*) rx_buf, RX_SIZE);
+			LED1_Service_Toggle(); // Toggle The Output (LED) Pin
+			print_message("Bluetooth Control\r\n");
 		}
-		osDelay(1);
+		osDelay(1);		//non-blocking delay
 	}
 	/* USER CODE END 5 */
 }

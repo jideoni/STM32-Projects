@@ -8,8 +8,9 @@
 #ifndef GPIO_DRIVER_INC_LED1_DRIVER_H_
 #define GPIO_DRIVER_INC_LED1_DRIVER_H_
 
-#include "gpio_map.h"
+#include "bsp_led1.h"
 
-void LED1_Init(void);
+void LED1_Init();
+void LED1_Toggle();
 
 #endif /* GPIO_DRIVER_INC_LED1_DRIVER_H_ */

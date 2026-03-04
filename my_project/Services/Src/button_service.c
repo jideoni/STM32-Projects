@@ -9,7 +9,8 @@
 #include "thread_handles.h"
 #include "thread_notification_flags.h"
 #include "button_service.h"
+#include "button_driver.h"
 
-void BUTTON_Service_ISR(void) {
-	osThreadFlagsSet(LED1ThreadHandle, LED1_THREAD_BUTTON_FLAG);
+void Button_Service_Init(void){
+	Button_Driver_Init();
 }

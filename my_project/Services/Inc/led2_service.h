@@ -8,6 +8,7 @@
 #ifndef INC_LED2_SERVICE_H_
 #define INC_LED2_SERVICE_H_
 
+void LED2_Service_Init(void);
 void LED2_Service_ON(void);
 void LED2_Service_OFF(void);
 
