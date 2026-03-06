@@ -8,9 +8,6 @@
 #include "main.h"
 #include "bsp_ble.h"
 #include "ble_driver.h"
-#include "bsp_led1.h"
-#include "led1_service.h"
-#include "ble_service.h"
 
 uint8_t rx_buf[RX_SIZE];	//buffer to hold 1 byte of data
 
@@ -44,7 +41,7 @@ void BSP_BLE_RX_Complete_Callback(void) {
 }
 
 void HAL_UART_RxCpltCallback(UART_HandleTypeDef *huart) {
-	if (huart->Instance == USART1) {
+	if (huart->Instance == BLE_USART) {
 		BSP_BLE_RX_Complete_Callback();
 	}
 }

@@ -7,8 +7,6 @@
 
 #include "main.h"
 #include "gpio_map.h"
-#include "button_service.h"
-#include "bsp_button.h"
 #include "button_driver.h"
 
 void BSP_Button_Init(void) {
@@ -39,7 +37,6 @@ void BSP_Button_EXTI_Callback(void){
 void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
 	if (GPIO_Pin == BUTTON_PIN) // If The INT Source Is Push_Button_Pin (PB5)
 	{
-		//BUTTON_Service_ISR();	//call function to set thread flags
 		BSP_Button_EXTI_Callback();
 	}
 }

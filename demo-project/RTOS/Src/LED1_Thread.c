@@ -5,14 +5,11 @@
  *      Author: Jyde
  */
 
-#include "main.h"
 #include "cmsis_os.h"
 #include "LED1_Thread.h"
 #include "thread_notification_flags.h"
 #include "led1_service.h"
 #include "bsp_serial_debug.h"
-#include "bsp_ble.h"
-#include "ble_driver.h"
 #include "ble_service.h"
 
 /* Definitions for LED1Thread */

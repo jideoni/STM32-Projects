@@ -5,11 +5,8 @@
  *      Author: Jyde
  */
 
-#include "cmsis_os.h"
-#include "thread_handles.h"
-#include "thread_notification_flags.h"
-#include "ldr_driver.h"
 #include "ldr_service.h"
+#include "ldr_driver.h"
 
 void LDR_Service_Init(void) {
 	LDR_Driver_Init();

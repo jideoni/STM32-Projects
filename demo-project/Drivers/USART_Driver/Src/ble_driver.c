@@ -5,7 +5,6 @@
  *      Author: Jyde
  */
 
-#include "main.h"
 #include "ble_driver.h"
 #include "bsp_ble.h"
 #include "thread_handles.h"

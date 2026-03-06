@@ -17,6 +17,5 @@ void Button_Driver_Init(){
 
 void Button_Driver_ISR_Handler(void)
 {
-    //buttonEvent = 1;   // set event flag (ISR safe)
 	osThreadFlagsSet(LED1ThreadHandle, LED1_THREAD_BUTTON_FLAG);
 }
