@@ -10,10 +10,7 @@
 
 #include "bsp_ble.h"
 
-extern uint8_t ble_rx_complete;
-
 void BLE_Service_Init(void);
-
 void BLE_Service_Start(void);
 
 #endif /* INC_BLE_SERVICE_H_ */

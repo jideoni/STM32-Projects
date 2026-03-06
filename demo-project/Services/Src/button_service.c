@@ -5,9 +5,6 @@
  *      Author: Jyde
  */
 
-#include "cmsis_os.h"
-#include "thread_handles.h"
-#include "thread_notification_flags.h"
 #include "button_service.h"
 #include "button_driver.h"
 

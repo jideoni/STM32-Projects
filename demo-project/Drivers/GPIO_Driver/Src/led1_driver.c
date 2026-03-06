@@ -5,8 +5,6 @@
  *      Author: Jyde
  */
 
-#include "main.h"
-#include "led1_driver.h"
 #include "bsp_led1.h"
 
 void LED1_Init(){

@@ -13,15 +13,14 @@
 #include <stdio.h>
 #include <string.h>
 
-#define RX_SIZE 2	//size for 1 data element
+#define RX_SIZE 1	//size for 1 byte of data
 #define BLE_UART_HANDLER &huart1
+#define BLE_USART USART1
 
 extern UART_HandleTypeDef huart1;
 
-void BSP_BLE_Init(void);
-
-void BSP_BLE_RX_Complete_Callback(void);
-
 HAL_StatusTypeDef BSP_BLE_Start_RX(void);
+void BSP_BLE_Init(void);
+void BSP_BLE_RX_Complete_Callback(void);
 
 #endif /* INC_BSP_BLE_H_ */

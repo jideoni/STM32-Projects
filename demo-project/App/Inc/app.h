@@ -9,5 +9,6 @@
 #define INC_APP_H_
 
 void App_Init(void);
+void App_Start(void);
 
 #endif /* INC_APP_H_ */

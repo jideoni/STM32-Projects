@@ -21,8 +21,6 @@
 #include "cmsis_os.h"
 #include "app.h"
 
-
-
 /* Private function prototypes -----------------------------------------------*/
 void SystemClock_Config(void);
 
@@ -31,12 +29,12 @@ int main(void) {
 	HAL_Init();
 
 	SystemClock_Config();
-
+	/* Init drivers */
 	App_Init();
-
+	/* Start Services */
+	App_Start();
 	/* Init scheduler */
 	osKernelInitialize();
-
 	/* Start scheduler */
 	osKernelStart();
 	/* We should never get here as control is now taken by the scheduler */

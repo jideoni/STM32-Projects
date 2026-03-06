@@ -17,10 +17,6 @@ uint16_t adc_buf[ADC_BUF_LEN];
 void BSP_LDR_Init(void) {
 	ADC_ChannelConfTypeDef sConfig = { 0 };
 
-	/* USER CODE BEGIN ADC_Init 1 */
-
-	/* USER CODE END ADC_Init 1 */
-
 	/** Configure the global features of the ADC (Clock, Resolution, Data Alignment and number of conversion)
 	 */
 	hadc.Instance = ADC1;
