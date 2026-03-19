@@ -8,9 +8,9 @@
 #include "cmsis_os.h"
 #include "LED1_Thread.h"
 #include "thread_notification_flags.h"
-#include "led1_service.h"
-#include "bsp_serial_debug.h"
+#include "leds_service.h"
 #include "ble_service.h"
+#include "bsp_serial_debug.h"
 
 /* Definitions for LED1Thread */
 osThreadId_t LED1ThreadHandle;
@@ -35,11 +35,11 @@ static void StartLED1Thread(void *argument) {
 		osWaitForever);
 
 		if (flags & LED1_THREAD_BUTTON_FLAG) {
-			LED1_Service_Toggle();
+			LED_Service_Toggle(BLE_BTN_LED);
 			print_message("Button Signal Received\r\n");
 		} else if (flags & LED1_THREAD_BLE_RX_FLAG) {
 			BLE_Service_Start();
-			LED1_Service_Toggle(); // Toggle The Output (LED) Pin
+			LED_Service_Toggle(BLE_BTN_LED);
 			print_message("Bluetooth Control\r\n");
 		}
 		osDelay(1);		//non-blocking delay

@@ -29,7 +29,7 @@ int main(void) {
 	HAL_Init();
 
 	SystemClock_Config();
-	/* Init drivers */
+	/* Initialize drivers */
 	App_Init();
 	/* Start Services */
 	App_Start();
