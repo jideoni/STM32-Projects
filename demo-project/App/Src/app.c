@@ -14,12 +14,10 @@
 #include "ldr_service.h"
 #include "ble_service.h"
 #include "button_service.h"
-#include "led1_service.h"
-#include "led2_service.h"
+#include "leds_service.h"
 
 void App_Init(void) {
-	LED1_Service_Init();
-	LED2_Service_Init();
+	LED_Service_Init();
 	Button_Service_Init();
 	Serial_Debugger_Init();
 	BLE_Service_Init();

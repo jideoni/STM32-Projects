@@ -7,7 +7,7 @@
 
 #include "cmsis_os.h"
 #include "LED2_Thread.h"
-#include "led2_service.h"
+#include "leds_service.h"
 #include "thread_notification_flags.h"
 #include "bsp_serial_debug.h"
 #include "ldr_service.h"
@@ -36,10 +36,10 @@ static void StartLED2Thread(void *argument) {
 		osThreadFlagsWait(LED2_THREAD_FLAG, osFlagsWaitAny, osWaitForever);
 		LDR_Value = (uint16_t) adc_buf[0];
 		if (LDR_Value <= 1000) {
-			LED2_Service_ON();
+			LED_Service_On(LDR_LED);
 			print_message("Dark!\r\n");
 		} else if (LDR_Value >= 2000){
-			LED2_Service_OFF();
+			LED_Service_Off(LDR_LED);
 			print_message("Bright!\r\n");
 		}
 		osDelay(1000);		//non-blocking delay

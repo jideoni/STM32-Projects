@@ -11,9 +11,9 @@
 
 #define BUTTON_GPIO_PORT   GPIOC
 #define BUTTON_PIN         GPIO_PIN_13
-#define LED1_GPIO_PORT   GPIOA
-#define LED1_PIN         GPIO_PIN_5
-#define LED2_GPIO_PORT   GPIOB
-#define LED2_PIN         GPIO_PIN_2
+#define BLE_BTN_LED_PORT   GPIOA
+#define BLE_BTN_LED_PIN         GPIO_PIN_5
+#define LDR_LED_PORT   GPIOB
+#define LDR_LED_PIN         GPIO_PIN_2
 
 #endif /* GPIO_DRIVER_INC_GPIO_MAP_H_ */
