@@ -9,6 +9,7 @@
 #define INC_BSP_SERIAL_DEBUG_H_
 
 #include <string.h>
+#include "bsp_conf.h"
 
 void print_message(const char *msg);
 

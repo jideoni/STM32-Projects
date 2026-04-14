@@ -8,6 +8,8 @@
 #ifndef INC_BSP_LEDS_H_
 #define INC_BSP_LEDS_H_
 
+#include "bsp_conf.h"
+
 #define ON (1 << 2);
 #define OFF (1 << (2 + 16));
 

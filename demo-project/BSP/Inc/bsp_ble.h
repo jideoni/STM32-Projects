@@ -8,16 +8,20 @@
 #ifndef INC_BSP_BLE_H_
 #define INC_BSP_BLE_H_
 
-#include "main.h"
-
 #include <stdio.h>
 #include <string.h>
+#include "bsp_conf.h"
 
 #define RX_SIZE 1	//size for 1 byte of data
-#define BLE_UART_HANDLER &huart1
 #define BLE_USART USART1
 
-extern UART_HandleTypeDef huart1;
+#ifndef BLE_UART_HANDLER
+#define BLE_UART_HANDLER        huart1
+#endif
+
+#if defined(BLE_UART_HANDLER)
+extern UART_HandleTypeDef BLE_UART_HANDLER;
+#endif
 
 HAL_StatusTypeDef BSP_BLE_Start_RX(void);
 void BSP_BLE_Init(void);

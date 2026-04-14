@@ -5,7 +5,6 @@
  *      Author: Jyde
  */
 
-#include "main.h"
 #include "gpio_map.h"
 #include "button_driver.h"
 

@@ -8,6 +8,8 @@
 #ifndef INC_BSP_BUTTON_H_
 #define INC_BSP_BUTTON_H_
 
+#include "bsp_conf.h"
+
 void BSP_Button_Init(void);
 
 /* called from ISR */

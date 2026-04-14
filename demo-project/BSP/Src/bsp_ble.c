@@ -5,7 +5,7 @@
  *      Author: Jyde
  */
 
-#include "main.h"
+#include "main.h"		//for error handler
 #include "bsp_ble.h"
 #include "ble_driver.h"
 
@@ -31,7 +31,7 @@ void BSP_BLE_Init(void) {
 }
 
 HAL_StatusTypeDef BSP_BLE_Start_RX() {
-	return HAL_UART_Receive_IT(BLE_UART_HANDLER, (uint8_t*) rx_buf, RX_SIZE);
+	return HAL_UART_Receive_IT(&BLE_UART_HANDLER, (uint8_t*) rx_buf, RX_SIZE);
 }
 
 void BSP_BLE_RX_Complete_Callback(void) {

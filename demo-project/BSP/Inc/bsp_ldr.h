@@ -8,8 +8,7 @@
 #ifndef INC_BSP_LDR_H_
 #define INC_BSP_LDR_H_
 
-#include "main.h"
-
+#include "bsp_conf.h"
 #include <stdio.h>
 #include <stdbool.h>
 #include <string.h>
