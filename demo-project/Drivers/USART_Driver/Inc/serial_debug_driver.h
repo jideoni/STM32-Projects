@@ -1,13 +1,15 @@
 /*
- * serial_debug_driver.h
+ * bsp_serial_debug.h
  *
- *  Created on: Feb 12, 2026
+ *  Created on: Feb 13, 2026
  *      Author: Jyde
  */
 
-#ifndef USART_DRIVER_INC_SERIAL_DEBUG_DRIVER_H_
-#define USART_DRIVER_INC_SERIAL_DEBUG_DRIVER_H_
+#ifndef INC_BSP_SERIAL_DEBUG_H_
+#define INC_BSP_SERIAL_DEBUG_H_
 
-void Serial_Debugger_Init(void);
+#include <string.h>
 
-#endif /* USART_DRIVER_INC_SERIAL_DEBUG_DRIVER_H_ */
+void print_message(const char *msg);
+
+#endif /* INC_BSP_SERIAL_DEBUG_H_ */

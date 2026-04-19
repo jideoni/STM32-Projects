@@ -5,17 +5,15 @@
  *      Author: Jyde
  */
 
-#include "main.h"
+//#include "main.h"
+//
 #include "button_driver.h"
-#include "bsp_button.h"
 #include "thread_notification_flags.h"
 #include "thread_handles.h"
 
-void Button_Driver_Init(){
-	BSP_Button_Init();
-}
-
-void Button_Driver_ISR_Handler(void)
-{
-	osThreadFlagsSet(LED1ThreadHandle, LED1_THREAD_BUTTON_FLAG);
+void HAL_GPIO_EXTI_Callback(uint16_t GPIO_Pin) {
+	if (GPIO_Pin == BUTTON_PIN) // If The INT Source Is Push_Button_Pin (PB5)
+	{
+		osThreadFlagsSet(LED1ThreadHandle, LED1_THREAD_BUTTON_FLAG);
+	}
 }
