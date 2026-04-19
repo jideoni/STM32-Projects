@@ -1,0 +1,51 @@
+/*
+ * bsp_ble.c
+ *
+ *  Created on: Feb 13, 2026
+ *      Author: Jyde
+ */
+
+#include <bsp_uart.h>
+#include "main.h"		//for error handler
+
+UART_HandleTypeDef BLE_UART_HANDLER;
+UART_HandleTypeDef SERIAL_DEBUG_UART_HANDLER;
+
+void BSP_BLE_Init(void) {
+	/* USER CODE END USART1_Init 1 */
+	BLE_UART_HANDLER.Instance = BLE_USART;
+	BLE_UART_HANDLER.Init.BaudRate = 9600;
+	BLE_UART_HANDLER.Init.WordLength = UART_WORDLENGTH_8B;
+	BLE_UART_HANDLER.Init.StopBits = UART_STOPBITS_1;
+	BLE_UART_HANDLER.Init.Parity = UART_PARITY_NONE;
+	BLE_UART_HANDLER.Init.Mode = UART_MODE_TX_RX;
+	BLE_UART_HANDLER.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+	BLE_UART_HANDLER.Init.OverSampling = UART_OVERSAMPLING_16;
+	BLE_UART_HANDLER.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+	BLE_UART_HANDLER.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+	if (HAL_UART_Init(&BLE_UART_HANDLER) != HAL_OK) {
+		Error_Handler();
+	}
+}
+
+void Serial_Debugger_Init(void) {
+	/* USER CODE END USART2_Init 1 */
+	SERIAL_DEBUG_UART_HANDLER.Instance = SERIAL_DEBUG_UART;
+	SERIAL_DEBUG_UART_HANDLER.Init.BaudRate = 38400;
+	SERIAL_DEBUG_UART_HANDLER.Init.WordLength = UART_WORDLENGTH_8B;
+	SERIAL_DEBUG_UART_HANDLER.Init.StopBits = UART_STOPBITS_1;
+	SERIAL_DEBUG_UART_HANDLER.Init.Parity = UART_PARITY_NONE;
+	SERIAL_DEBUG_UART_HANDLER.Init.Mode = UART_MODE_TX_RX;
+	SERIAL_DEBUG_UART_HANDLER.Init.HwFlowCtl = UART_HWCONTROL_NONE;
+	SERIAL_DEBUG_UART_HANDLER.Init.OverSampling = UART_OVERSAMPLING_16;
+	SERIAL_DEBUG_UART_HANDLER.Init.OneBitSampling = UART_ONE_BIT_SAMPLE_DISABLE;
+	SERIAL_DEBUG_UART_HANDLER.AdvancedInit.AdvFeatureInit = UART_ADVFEATURE_NO_INIT;
+	if (HAL_UART_Init(&SERIAL_DEBUG_UART_HANDLER) != HAL_OK) {
+		Error_Handler();
+	}
+}
+
+void BSP_UART_Init(void){
+	BSP_BLE_Init();
+	Serial_Debugger_Init();
+}

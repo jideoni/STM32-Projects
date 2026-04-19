@@ -1,15 +1,14 @@
 /*
- * bsp_leds.c
+ * bsp_gpio.h
  *
- *  Created on: Mar 18, 2026
+ *  Created on: Apr 16, 2026
  *      Author: Jyde
  */
 
-#include "main.h"
-#include "gpio_map.h"
-#include "bsp_leds.h"
+#include "bsp_gpio.h"
 
-void BSP_LEDs_Init(void) {
+void BSP_GPIO_Init(void) {
+	///////////////LEDs
 	GPIO_InitTypeDef GPIO_InitStruct = { 0 };
 
 	/* GPIO Ports Clock Enable */
@@ -28,42 +27,28 @@ void BSP_LEDs_Init(void) {
 	HAL_GPIO_Init(BLE_BTN_LED_PORT, &GPIO_InitStruct);
 
 	/*Configure GPIO pin : LED2_Pin */
-	GPIO_InitStruct.Pin = LED2_Pin;
+	GPIO_InitStruct.Pin = LDR_LED_PIN;
 	GPIO_InitStruct.Mode = GPIO_MODE_OUTPUT_PP;
 	GPIO_InitStruct.Pull = GPIO_NOPULL;
 	GPIO_InitStruct.Speed = GPIO_SPEED_FREQ_LOW;
 	HAL_GPIO_Init(LDR_LED_PORT, &GPIO_InitStruct);
-}
 
-void BSP_LED_On(LED_Id_t LED_ID) {
-	switch (LED_ID) {
-	case BLE_BTN_LED:
-		//BLE_BTN_LED_PORT->BSRR = (1 << 2);
-		break;
-	case LDR_LED:
-		LDR_LED_PORT->BSRR = ON;
-		break;
-	}
-}
+	//////////////////Button
+	//GPIO_InitTypeDef GPIO_InitStruct = { 0 };
+	/* USER CODE BEGIN MX_GPIO_Init_1 */
+	/* USER CODE END MX_GPIO_Init_1 */
 
-void BSP_LED_Off(LED_Id_t LED_ID) {
-	switch (LED_ID) {
-	case BLE_BTN_LED:
-		//BLE_BTN_LED_PORT->BSRR = (1 << (2 + 16));
-		break;
-	case LDR_LED:
-		LDR_LED_PORT->BSRR = OFF;
-		break;
-	}
-}
+	/* GPIO Ports Clock Enable */
+	__HAL_RCC_GPIOF_CLK_ENABLE();
+	__HAL_RCC_GPIOC_CLK_ENABLE();
 
-void BSP_LED_Toggle(LED_Id_t LED_ID) {
-	switch (LED_ID) {
-	case BLE_BTN_LED:
-		HAL_GPIO_TogglePin(BLE_BTN_LED_PORT, BLE_BTN_LED_PIN);
-		break;
-	case LDR_LED:
-		//HAL_GPIO_TogglePin(LDR_LED_PORT, LED1_PIN);
-		break;
-	}
+	/*Configure GPIO pin : B1_Pin */
+	GPIO_InitStruct.Pin = BUTTON_PIN;
+	GPIO_InitStruct.Mode = GPIO_MODE_IT_FALLING;
+	GPIO_InitStruct.Pull = GPIO_NOPULL;
+	HAL_GPIO_Init(BUTTON_GPIO_PORT, &GPIO_InitStruct);
+
+	/* EXTI interrupt init*/
+	HAL_NVIC_SetPriority(EXTI4_15_IRQn, 3, 0);
+	HAL_NVIC_EnableIRQ(EXTI4_15_IRQn);
 }

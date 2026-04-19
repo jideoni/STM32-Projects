@@ -7,15 +7,12 @@
 
 #include "cmsis_os.h"
 #include "LED2_Thread.h"
-#include "leds_service.h"
 #include "thread_notification_flags.h"
-#include "bsp_serial_debug.h"
-#include "ldr_service.h"
+#include "serial_debug_driver.h"
+#include "app_ldr.h"
 
 /* Definitions for LED2Thread */
 osThreadId_t LED2ThreadHandle;
-
-static uint16_t LDR_Value;
 
 const osThreadAttr_t LED2Thread_attributes = { .name = "LED2Thread",
 		.stack_size = 128 * 4, .priority = (osPriority_t) osPriorityNormal, };
@@ -31,18 +28,10 @@ static void StartLED2Thread(void *argument) {
 	/* USER CODE BEGIN 5 */
 	/* Infinite loop */
 	for (;;) {
-		LDR_Service_Start();
-
+		LDR_Driver_Start();
 		osThreadFlagsWait(LED2_THREAD_FLAG, osFlagsWaitAny, osWaitForever);
-		LDR_Value = (uint16_t) adc_buf[0];
-		if (LDR_Value <= 1000) {
-			LED_Service_On(LDR_LED);
-			print_message("Dark!\r\n");
-		} else if (LDR_Value >= 2000){
-			LED_Service_Off(LDR_LED);
-			print_message("Bright!\r\n");
-		}
-		osDelay(1000);		//non-blocking delay
+		process_brightness();
+		osDelay(1000);
 	}
 	/* USER CODE END 5 */
 }

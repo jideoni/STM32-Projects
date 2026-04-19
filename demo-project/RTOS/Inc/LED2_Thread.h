@@ -8,10 +8,6 @@
 #ifndef INC_LED2_THREAD_H_
 #define INC_LED2_THREAD_H_
 
-#include <stdint.h>
-
-extern uint16_t adc_buf[];
-
 void LED2_Thread_Init(void);
 
 #endif /* INC_LED2_THREAD_H_ */

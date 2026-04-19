@@ -5,21 +5,21 @@
  *      Author: Jyde
  */
 
-#include "main.h"
+#include <bsp_adc.h>
+#include <ldr_driver.h>
 #include "thread_handles.h"
 #include "thread_notification_flags.h"
-#include "bsp_ldr.h"
-#include "ldr_driver.h"
 
-void LDR_Driver_Init(void) {
-	BSP_LDR_Init();
+extern ADC_HandleTypeDef LDR_ADC_HANDLER;
+
+uint16_t adc_buf[ADC_BUF_LEN];
+
+HAL_StatusTypeDef LDR_Driver_Start(void) {
+	return HAL_ADC_Start_DMA(&LDR_ADC_HANDLER, (uint32_t*) adc_buf, ADC_BUF_LEN); //Convert ADC in DMA Mode
 }
-void LDR_DMA_Driver_Init(void){
-	BSP_LDR_DMA_Init();
-}
-void LDR_Driver_DMA_Handler(void) {
-	osThreadFlagsSet(LED2ThreadHandle, LED2_THREAD_FLAG);	//set thread flag
-}
-void LDR_Driver_Start(void) {
-	BSP_LDR_Start_DMA();
+
+void HAL_ADC_ConvCpltCallback(ADC_HandleTypeDef *hadc) {
+	if (LDR_ADC_HANDLER->Instance == LDR_ADC) {
+		osThreadFlagsSet(LED2ThreadHandle, LED2_THREAD_FLAG);	//set thread flag
+	}
 }

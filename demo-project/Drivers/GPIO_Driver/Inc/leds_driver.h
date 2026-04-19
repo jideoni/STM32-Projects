@@ -8,9 +8,17 @@
 #ifndef GPIO_DRIVER_INC_LEDS_DRIVER_H_
 #define GPIO_DRIVER_INC_LEDS_DRIVER_H_
 
-#include "bsp_leds.h"
+#include "bsp_gpio.h"
+#include "bsp_conf.h"
 
-void LEDs_Driver_Init();
+#define ON (1 << 2);
+#define OFF (1 << (2 + 16));
+
+typedef enum {
+	BLE_BTN_LED, LDR_LED
+//add more LEDs if needed
+} LED_Id_t;
+
 void LED_On(LED_Id_t LED_ID);
 void LED_Off(LED_Id_t LED_ID);
 void LED_Toggle(LED_Id_t LED_ID);
